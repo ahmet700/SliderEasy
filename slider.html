@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Slider Dersleri </title>
+
+<style>
+* {margin:0;padding:0; border:0; list-style:none;}
+
+body {
+	background:#fff;
+}
+#slide {
+	background : #fff;
+	width  : 600px;
+	height : 250px;
+	overflow : hidden;
+	margin : 50px;
+
+}
+#slide img {
+                position: relative;
+                top: 0;
+                left: 0px;
+                display: none;
+            }
+			
+.progress {
+		    position:relative;
+			top:0;
+			left:0;
+			display:block;
+			z-index:1;
+			height:5px;
+			background:#cff;
+			width:100%;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+var images;
+var imgcount;
+var current=0;
+$(document).ready(function(){
+images=$("#slide img");
+imgcount = images.length;
+$("#slide img").hide();
+$("#slide img").first().show();
+
+
+setInterval(slide,5000);
+
+
+
+
+
+});
+
+function slide()
+{
+	if(current==(imgcount -1))
+	{
+		images.fadeOut("slow").eq(0).fadeIn("slow");
+		current=0;
+	} else
+	{
+		current++
+		images.hide().eq(current).fadeIn();
+	}
+}
+
+
+</script>
+
+
+</head>
+<body>
+<div id="slide">
+<div class="progress"></div>
+<ul>
+   <li><a href="resim1" alt="Test 1" ><img src="http://placehold.it/600x250/E8117F/FFFFFF?text=resim1" ></a>
+   <li><a href="resim2" alt="Test 2" ><img src="http://placehold.it/600x250/E8ff7F/FFFFFF?text=resim2" ></a>
+   <li><a href="resim3" alt="Test 3" ><img src="http://placehold.it/600x250/E81122/FFFFFF?text=resim3" ></a>
+   <li><a href="resim4" alt="Test 4" ><img src="http://placehold.it/600x250/22117F/FFFFFF?text=resim4" ></a>
+</ul>
+</div>
+
+
+</body>
+
+</html>
